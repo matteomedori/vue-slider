@@ -48,8 +48,14 @@ createApp({
       this.currentImg--;
       if (this.currentImg < 0) this.currentImg = this.slides.length - 1;
     },
+    stopAutoplay() {
+      clearInterval(this.timer);
+    },
+    startAutoplay() {
+      this.timer = setInterval(this.next, 3_000);
+    },
   },
   mounted() {
-    this.timer = setInterval(this.next, 3_000);
+    this.startAutoplay();
   },
 }).mount("#app");
