@@ -13,10 +13,13 @@
       <div class="container">
         <div class="slider-wrapper" tabindex="0">
           <div class="item">
-            <img :src="slides[0].image" :alt="slides[0].title" />
+            <img
+              :src="slides[currentImg].image"
+              :alt="slides[currentImg].title"
+            />
             <div class="text">
-              <h3>{{slides[0].title}}</h3>
-              <p>{{slides[0].text}}</p>
+              <h3>{{slides[currentImg].title}}</h3>
+              <p>{{slides[currentImg].text}}</p>
             </div>
           </div>
 
@@ -26,7 +29,8 @@
             <div
               v-for="(img, index) in slides"
               class="thumb"
-              :class="index === 0 ? 'active' : ''"
+              :class="index === currentImg ? 'active' : ''"
+              @click="changeThumb(index)"
             >
               <img :src="img.image" :alt="img.title" />
             </div>
