@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <div id="app" v-cloak>
+      <div class="container">
+        <div class="slider-wrapper" tabindex="0">
+          <div class="item">
+            <img :src="slides[0].image" :alt="slides[0].title" />
+            <div class="text">
+              <h3>{{slides[0].title}}</h3>
+              <p>{{slides[0].text}}</p>
+            </div>
+          </div>
+
+          <div class="thumbs">
+            <div class="prev"></div>
+            <div class="next"></div>
+            <div
+              v-for="(img, index) in slides"
+              class="thumb"
+              :class="index === 0 ? 'active' : ''"
+            >
+              <img :src="img.image" :alt="img.title" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
