@@ -15,7 +15,13 @@ Partendo dal markup della versione svolta in js plain, rifare lo slider ma quest
 
 ### Bonus 2
 
--aggiungo la funzione mounted che agisce dopo che l'app è montata
-
+- aggiungo la funzione mounted che agisce dopo che l'app è montata
 - creo una proprità timer inizializzata a 0
 - all'interno di mounted invoco setInterval ogni 3 secondi passandogli la funzione next() per cambiare immagine e il risultato ritornato lo assegno a timer
+
+### Bonus 3
+
+- aggiungo a methods le funzioni stopAutoplay e startAutoplay
+- stopAutoplay invoca clearInterval e prende in ingresso this.timer
+- startAutoplay invoca setInterval
+- aggiungo al div con classe slider gli eventi mouseover e mouseleave che richiamano rispettivamente stopAutoplay e startAutoplay
