@@ -33,11 +33,23 @@ createApp({
         },
       ],
       currentImg: 0,
+      timer: 0,
     };
   },
   methods: {
     changeThumb(index) {
       this.currentImg = index;
     },
+    next() {
+      this.currentImg++;
+      if (this.currentImg > this.slides.length - 1) this.currentImg = 0;
+    },
+    prev() {
+      this.currentImg--;
+      if (this.currentImg < 0) this.currentImg = this.slides.length - 1;
+    },
+  },
+  mounted() {
+    this.timer = setInterval(this.next, 3_000);
   },
 }).mount("#app");
